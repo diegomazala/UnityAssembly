@@ -11,6 +11,7 @@
     <AssemblyName>UnityDLL</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,7 +47,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /y $(TargetPath) F:\Projetos\Unity\Unity_Assembly\unity\Assets\Assemblies\</PostBuildEvent>
+    <PostBuildEvent>copy /y $(TargetPath) $(SolutionDir)\Assets\Assemblies\
+copy /y $(TargetDir)$(TargetName).pdb $(SolutionDir)\Assets\Assemblies\
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
